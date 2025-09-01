@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,7 +16,7 @@
             margin: 2rem auto;
             background-color: #ffffff;
             border-radius: 1rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1-255-0-06);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
             padding: 2.5rem;
         }
         h1, h2, h3 {
@@ -35,6 +35,34 @@
 </head>
 <body class="bg-gray-100">
 
+    <!-- Navbar -->
+    <nav class="bg-white sticky top-0 z-50 shadow-md">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="portfolio.html" class="text-xl font-bold text-blue-600 hover:underline">Back to Portfolio</a>
+            <div class="hidden md:flex space-x-6 text-gray-600">
+                <a href="#summary" class="hover:text-blue-600 transition duration-300">Summary</a>
+                <a href="#competencies" class="hover:text-blue-600 transition duration-300">Competencies</a>
+                <a href="#experience" class="hover:text-blue-600 transition duration-300">Experience</a>
+                <a href="#projects" class="hover:text-blue-600 transition duration-300">Projects</a>
+                <a href="#achievements" class="hover:text-blue-600 transition duration-300">Achievements</a>
+                <a href="#certifications" class="hover:text-blue-600 transition duration-300">Certifications</a>
+                <a href="#education" class="hover:text-blue-600 transition duration-300">Education</a>
+            </div>
+            <button id="menu-button" class="md:hidden text-gray-600 hover:text-blue-600 focus:outline-none">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md py-2">
+            <a href="#summary" class="block px-6 py-2 hover:bg-gray-100">Summary</a>
+            <a href="#competencies" class="block px-6 py-2 hover:bg-gray-100">Competencies</a>
+            <a href="#experience" class="block px-6 py-2 hover:bg-gray-100">Experience</a>
+            <a href="#projects" class="block px-6 py-2 hover:bg-gray-100">Projects</a>
+            <a href="#achievements" class="block px-6 py-2 hover:bg-gray-100">Achievements</a>
+            <a href="#certifications" class="block px-6 py-2 hover:bg-gray-100">Certifications</a>
+            <a href="#education" class="block px-6 py-2 hover:bg-gray-100">Education</a>
+        </div>
+    </nav>
+
     <div class="resume-container">
         <!-- Header Section -->
         <div class="flex flex-col md:flex-row justify-between items-start md:items-center pb-6 border-b border-gray-200">
@@ -50,13 +78,13 @@
         </div>
 
         <!-- Professional Summary Section -->
-        <div class="mt-8">
+        <div id="summary" class="mt-8">
             <h3 class="text-lg font-semibold text-gray-800 border-b-2 border-indigo-500 pb-1">Professional Summary</h3>
             <p class="text-gray-600 mt-2 leading-relaxed">Dedicated and results-oriented Full Stack Developer with <b>3+ years</b> of experience in designing, developing, and deploying robust applications. Proficient in modern web technologies including Node.js, React, and Next.js, with hands-on expertise in the AWS ecosystem (SES, S3, Lambda, SQS, Step Functions) and various messaging queues (RabbitMQ, ActiveMQ, Kafka). Proven ability to manage a small team, deliver high-quality code, and contribute to all phases of the software development lifecycle.</p>
         </div>
         
         <!-- Core Competencies Section -->
-        <div class="mt-8">
+        <div id="competencies" class="mt-8">
             <h3 class="text-lg font-semibold text-gray-800 border-b-2 border-indigo-500 pb-1">Core Competencies</h3>
             <div class="mt-2 text-gray-600">
                 <span class="inline-block bg-gray-200 text-gray-700 text-sm px-3 py-1 rounded-full mr-2 mb-2">Full Stack Development</span>
@@ -87,7 +115,7 @@
         </div>
 
         <!-- Experience Section -->
-        <div class="mt-8">
+        <div id="experience" class="mt-8">
             <h3 class="text-lg font-semibold text-gray-800 border-b-2 border-indigo-500 pb-1">Experience</h3>
             <div class="mt-4">
                 <div class="flex justify-between items-baseline">
@@ -133,7 +161,7 @@
         </div>
         
         <!-- Projects Section -->
-        <div class="mt-8">
+        <div id="projects" class="mt-8">
             <h3 class="text-lg font-semibold text-gray-800 border-b-2 border-indigo-500 pb-1">Projects</h3>
             <!-- Project 1: Taxbandits Payroll -->
             <div class="mt-4">
@@ -160,7 +188,7 @@
         </div>
 
         <!-- Achievements Section -->
-        <div class="mt-8">
+        <div id="achievements" class="mt-8">
             <h3 class="text-lg font-semibold text-gray-800 border-b-2 border-indigo-500 pb-1">Achievements</h3>
             <ul class="list-disc list-inside mt-2 text-gray-600 space-y-2">
                 <li>Received SPAN super star Award for exceptional performance and contribution to Taxbandits payroll product.</li>
@@ -168,7 +196,7 @@
         </div>
         
         <!-- Certifications Section -->
-        <div class="mt-8">
+        <div id="certifications" class="mt-8">
             <h3 class="text-lg font-semibold text-gray-800 border-b-2 border-indigo-500 pb-1">Certifications</h3>
             <ul class="list-disc list-inside mt-2 text-gray-600 space-y-2">
                 <li>React Front To Back (Udemy, Sep 8, 2022)</li>
@@ -179,7 +207,7 @@
         </div>
 
         <!-- Education Section -->
-        <div class="mt-8">
+        <div id="education" class="mt-8">
             <h3 class="text-lg font-semibold text-gray-800 border-b-2 border-indigo-500 pb-1">Education</h3>
             <div class="mt-2 flex flex-col md:flex-row justify-between">
                 <div>
@@ -190,5 +218,14 @@
             </div>
         </div>
     </div>
+    
+    <script>
+        // Mobile menu toggle
+        const menuButton = document.getElementById('menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
 </body>
 </html>
