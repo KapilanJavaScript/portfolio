@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kapilan Manikandan - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .section-title {
+            position: relative;
+            padding-bottom: 0.5rem;
+            color: #1a202c;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 3rem;
+            height: 4px;
+            background-color: #3b82f6;
+            border-radius: 9999px;
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 2.5rem;
+            border-left: 2px solid #e2e8f0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .timeline-item.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -0.625rem;
+            top: 0;
+            width: 1.25rem;
+            height: 1.25rem;
+            background: linear-gradient(135deg, #3b82f6, #60a5fa);
+            border-radius: 9999px;
+            border: 4px solid #f8f9fa;
+        }
+        .project-card {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .project-card.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .skills-tag {
+            transition: transform 0.2s ease-in-out;
+            background-color: #e2e8f0;
+        }
+        .skills-tag:hover {
+            transform: translateY(-3px);
+            background-color: #d1d5db;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="bg-white sticky top-0 z-50 shadow-md">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#home" class="text-2xl font-bold text-blue-600">Kapilan Manikandan</a>
+            <div class="hidden md:flex space-x-6 text-gray-600">
+                <a href="#about" class="hover:text-blue-600 transition duration-300">About</a>
+                <a href="#experience" class="hover:text-blue-600 transition duration-300">Experience</a>
+                <a href="#projects" class="hover:text-blue-600 transition duration-300">Projects</a>
+                <a href="#skills" class="hover:text-blue-600 transition duration-300">Skills</a>
+                <a href="Classic management resume.docx" download class="hover:text-blue-600 transition duration-300">Resume</a>
+                <a href="#contact" class="hover:text-blue-600 transition duration-300">Contact</a>
+            </div>
+            <button id="menu-button" class="md:hidden text-gray-600 hover:text-blue-600 focus:outline-none">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md py-2">
+            <a href="#about" class="block px-6 py-2 hover:bg-gray-100">About</a>
+            <a href="#experience" class="block px-6 py-2 hover:bg-gray-100">Experience</a>
+            <a href="#projects" class="block px-6 py-2 hover:bg-gray-100">Projects</a>
+            <a href="#skills" class="block px-6 py-2 hover:bg-gray-100">Skills</a>
+            <a href="Classic management resume.docx" download class="block px-6 py-2 hover:bg-gray-100">Resume</a>
+            <a href="#contact" class="block px-6 py-2 hover:bg-gray-100">Contact</a>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-6 py-12">
+        <!-- About Section -->
+        <section id="about" class="py-12 md:py-16">
+            <h2 class="text-3xl font-bold section-title">About Me</h2>
+            <p class="mt-8 text-lg text-gray-600 leading-relaxed animate-fade-in-up">
+                Dedicated and results-oriented Full Stack Developer with <b>3+ years</b> of experience in designing, developing, and deploying robust applications. Proficient in modern web technologies including Node.js, React, and Next.js, with hands-on expertise in the AWS ecosystem (SES, S3, Lambda, SQS, Step Functions) and various messaging queues (RabbitMQ, ActiveMQ, Kafka). Proven ability to manage a small team, deliver high-quality code, and contribute to all phases of the software development lifecycle.
+            </p>
+        </section>
+
+        <!-- Experience Section (Timeline) -->
+        <section id="experience" class="py-12 md:py-16">
+            <h2 class="text-3xl font-bold section-title">Experience</h2>
+            <div class="mt-12 space-y-12">
+                <!-- Software Engineer -->
+                <div class="timeline-item">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+                        <div>
+                            <h4 class="text-lg font-semibold text-gray-800">Software Engineer</h4>
+                            <span class="text-sm text-gray-500">SPAN Technology Services Pvt Ltd | Coimbatore, Tamil Nadu</span>
+                        </div>
+                        <span class="text-sm text-gray-500 mt-2 md:mt-0">May 2025 - Present</span>
+                    </div>
+                    <ul class="list-disc list-inside mt-4 text-gray-600 space-y-2">
+                        <li>Led a module team of three members, assigning tasks, managing project timelines, and ensuring on-time delivery with a focus on maintaining low bug rates.</li>
+                        <li>Revamped the client-side product architecture to implement a robust, role-based access control system.</li>
+                        <li>Utilized Sequelize ORM to manage and interact with PostgreSQL databases, streamlining data operations.</li>
+                        <li>Optimized product regeneration services and designed state configuration architecture to enhance application performance and scalability.</li>
+                        <li>Created a new, secure business portal login system with <b>JWT</b>-based authentication and a user-type-based structure for roles like CPA, BO, and Staff.</li>
+                    </ul>
+                </div>
+                <!-- Junior Software Engineer -->
+                <div class="timeline-item">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+                        <div>
+                            <h4 class="text-lg font-semibold text-gray-800">Junior Software Engineer</h4>
+                            <span class="text-sm text-gray-500">SPAN Technology Services Pvt Ltd | Coimbatore, Tamil Nadu</span>
+                        </div>
+                        <span class="text-sm text-gray-500 mt-2 md:mt-0">May 2023 - Apr 2025</span>
+                    </div>
+                    <ul class="list-disc list-inside mt-4 text-gray-600 space-y-2">
+                        <li>Contributed to the architectural design and development of multiple enterprise-level products, utilizing a modern stack of <b>Next.js</b>, <b>Node.js</b>, and <b>PostgreSQL</b>.</li>
+                        <li>Engineered and implemented key modules for payroll and tax calculation, ensuring accuracy and regulatory compliance.</li>
+                        <li>Implemented a digest mail preference system using <b>AWS EventBridge</b> and <b>SNS</b> for real-time bounce tracking.</li>
+                        <li>Managed messaging services with <b>Kafka</b> to ensure a scalable and reliable data flow.</li>
+                        <li>Optimized system performance by <b>leveraging</b> <b>Redis</b> for caching and <b>working with</b> <b>RabbitMQ</b>/<b>ActiveMQ</b> for message queue management.</li>
+                    </ul>
+                </div>
+                <!-- Junior Software Engineer Intern -->
+                <div class="timeline-item">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+                        <div>
+                            <h4 class="text-lg font-semibold text-gray-800">Junior Software Engineer Intern</h4>
+                            <span class="text-sm text-gray-500">SPAN Technology Services Pvt Ltd | Coimbatore, Tamil Nadu</span>
+                        </div>
+                        <span class="text-sm text-gray-500 mt-2 md:mt-0">May 2022 - Jan 2023</span>
+                    </div>
+                    <ul class="list-disc list-inside mt-4 text-gray-600 space-y-2">
+                        <li>Developed and delivered a full-stack <b>Meeting Room Management</b> application using <b>Next.js</b>, <b>Node.js/Express.js</b>, and <b>MongoDB</b> to streamline corporate resource scheduling.</li>
+                        <li>Contributed to the development of <b>SPAN Plan</b>, an internal platform for HR announcements and company resources, collaborating with the HR team to integrate <b>CODA docs</b> for simplified content updates.</li>
+                        <li>Designed and implemented a role-based architecture for <b>SPAN Foods</b>, a food-ordering application used by over 300 employees to manage daily menus, orders, and payroll deductions.</li>
+                        <li>Applied foundational knowledge of <b>company culture</b>, <b>agile methodologies</b>, and <b>time management</b> to effectively complete assignments and manage project deliverables.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-12 md:py-16">
+            <h2 class="text-3xl font-bold section-title">Projects</h2>
+            <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project Card: Taxbandits Payroll -->
+                <div class="project-card bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-transform duration-300">
+                    <h4 class="text-xl font-semibold text-gray-800">Taxbandits Payroll</h4>
+                    <p class="text-sm text-gray-500 mt-1"><i>Product Development Contribution</i></p>
+                    <ul class="project-details list-disc list-inside mt-4 text-gray-600 space-y-2">
+                        <li>Collaborated on the product architecture using <b>Next.js 14</b>, <b>Node.js 20</b>, <b>Express.js</b>, and <b>PostgreSQL</b>.</li>
+                        <li>Implemented the comprehensive mail system and folder management system for the product.</li>
+                        <li>Developed core modules for pay schedule and tax calculation for pay stubs, ensuring accuracy.</li>
+                        <li>Created a new, plan-based client-side architecture and developed a client-side cookies system for user management.</li>
+                    </ul>
+                </div>
+                <!-- Project Card: Taxbandits W-9/W-8Ben -->
+                <div class="project-card bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-transform duration-300">
+                    <h4 class="text-xl font-semibold text-gray-800">Taxbandits W-9/W-8Ben</h4>
+                    <p class="text-sm text-gray-500 mt-1"><i>Product Leadership and Development</i></p>
+                    <ul class="project-details list-disc list-inside mt-4 text-gray-600 space-y-2">
+                        <li>Led a development team and managed the product through its lifecycle.</li>
+                        <li>Implemented a digest mail preference system with <b>AWS EventBridge</b> and an <b>SNS</b> notification system for bounce mail tracking.</li>
+                        <li>Utilized <b>RabbitMQ</b> for development and <b>ActiveMQ</b> for production as message brokers.</li>
+                        <li>Developed the product with <b>Next.js 12</b>, <b>Bootstrap</b>, <b>Express.js</b>, and <b>MySQL</b>.</li>
+                    </ul>
+                </div>
+                <!-- Project Card: Meeting Room Management -->
+                <div class="project-card bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-transform duration-300">
+                    <h4 class="text-xl font-semibold text-gray-800">Meeting Room Management</h4>
+                    <p class="text-sm text-gray-500 mt-1"><i>Internship Completion Project</i></p>
+                    <ul class="project-details list-disc list-inside mt-4 text-gray-600 space-y-2">
+                        <li>Developed a full-stack application using <b>Next.js</b>, <b>Node.js/Express.js</b>, and <b>MongoDB</b> to streamline corporate resource scheduling.</li>
+                        <li>Engineered features enabling teams to schedule meetings on available rooms, add team members, and take meeting notes.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-12 md:py-16">
+            <h2 class="text-3xl font-bold section-title">Skills</h2>
+            <div class="mt-8">
+                <div class="mt-2 text-gray-600 flex flex-wrap gap-2">
+                    <div class="skills-tag inline-block text-gray-700 text-sm px-4 py-2 rounded-full mb-2">Full Stack Development</div>
+                    <div class="skills-tag inline-block text-gray-700 text-sm px-4 py-2 rounded-full mb-2">Node.js / Express.js</div>
+                    <div class="skills-tag inline-block text-gray-700 text-sm px-4 py-2 rounded-full mb-2">React / Next.js</div>
+                    <div class="skills-tag inline-block text-gray-700 text-sm px-4 py-2 rounded-full mb-2">AWS (SES, S3, Lambda, SQS, SNS, Step Functions, API Gateway, EventBridge)</div>
+                    <div class="skills-tag inline-block text-gray-700 text-sm px-4 py-2 rounded-full mb-2">RabbitMQ / ActiveMQ / Kafka</div>
+                    <div class="skills-tag inline-block text-gray-700 text-sm px-4 py-2 rounded-full mb-2">MongoDB / MySQL / PostgreSQL</div>
+                    <div class="skills-tag inline-block text-gray-700 text-sm px-4 py-2 rounded-full mb-2">Team Leadership</div>
+                    <div class="skills-tag inline-block text-gray-700 text-sm px-4 py-2 rounded-full mb-2">Agile Methodologies</div>
+                    <div class="skills-tag inline-block text-gray-700 text-sm px-4 py-2 rounded-full mb-2">RESTful APIs</div>
+                    <div class="skills-tag inline-block text-gray-700 text-sm px-4 py-2 rounded-full mb-2">Product Architecture</div>
+                    <div class="skills-tag inline-block text-gray-700 text-sm px-4 py-2 rounded-full mb-2">Prompt Engineering</div>
+                    <div class="skills-tag inline-block text-gray-700 text-sm px-4 py-2 rounded-full mb-2">WordPress</div>
+                    <div class="skills-tag inline-block text-gray-700 text-sm px-4 py-2 rounded-full mb-2">UI/UX Design Tools</div>
+                    <div class="skills-tag inline-block text-gray-700 text-sm px-4 py-2 rounded-full mb-2">Docker</div>
+                    <div class="skills-tag inline-block text-gray-700 text-sm px-4 py-2 rounded-full mb-2">JavaScript</div>
+                    <div class="skills-tag inline-block text-gray-700 text-sm px-4 py-2 rounded-full mb-2">C#</div>
+                    <div class="skills-tag inline-block text-gray-700 text-sm px-4 py-2 rounded-full mb-2">Bootstrap</div>
+                    <div class="skills-tag inline-block text-gray-700 text-sm px-4 py-2 rounded-full mb-2">Git/GitHub</div>
+                    <div class="skills-tag inline-block text-gray-700 text-sm px-4 py-2 rounded-full mb-2">CSS</div>
+                    <div class="skills-tag inline-block text-gray-700 text-sm px-4 py-2 rounded-full mb-2">JWT</div>
+                    <div class="skills-tag inline-block text-gray-700 text-sm px-4 py-2 rounded-full mb-2">MVC Architecture</div>
+                    <div class="skills-tag inline-block text-gray-700 text-sm px-4 py-2 rounded-full mb-2">CODA docs API Integration</div>
+                    <div class="skills-tag inline-block text-gray-700 text-sm px-4 py-2 rounded-full mb-2">Sequelize / ORM</div>
+                    <div class="skills-tag inline-block text-gray-700 text-sm px-4 py-2 rounded-full mb-2">Role-Based Access Control</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section id="certifications" class="py-12 md:py-16">
+            <h2 class="text-3xl font-bold section-title">Certifications</h2>
+            <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-600">
+                <div class="flex items-center space-x-4">
+                    <svg class="h-6 w-6 text-blue-500" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a8 8 0 100 16 8 8 0 000-16zM8 9a1 1 0 011-1h2a1 1 0 010 2h-2a1 1 0 01-1-1zM9 13a1 1 0 011-1h.01a1 1 0 011 1V14a1 1 0 01-1 1h-.01a1 1 0 01-1-1v-1z"></path></svg>
+                    <span><b>React Front To Back</b> (Udemy, Sep 8, 2022)</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <svg class="h-6 w-6 text-blue-500" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a8 8 0 100 16 8 8 0 000-16zM8 9a1 1 0 011-1h2a1 1 0 010 2h-2a1 1 0 01-1-1zM9 13a1 1 0 011-1h.01a1 1 0 011 1V14a1 1 0 01-1 1h-.01a1 1 0 01-1-1v-1z"></path></svg>
+                    <span><b>Next.js Dev to Deployment</b> (Udemy, Sep 8, 2022)</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <svg class="h-6 w-6 text-blue-500" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a8 8 0 100 16 8 8 0 000-16zM8 9a1 1 0 011-1h2a1 1 0 010 2h-2a1 1 0 01-1-1zM9 13a1 1 0 011-1h.01a1 1 0 011 1V14a1 1 0 01-1 1h-.01a1 1 0 01-1-1v-1z"></path></svg>
+                    <span><b>The Complete Node.js Developer Course</b> (3rd Edition) (Udemy, Aug 10, 2022)</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <svg class="h-6 w-6 text-blue-500" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a8 8 0 100 16 8 8 0 000-16zM8 9a1 1 0 011-1h2a1 1 0 010 2h-2a1 1 0 01-1-1zM9 13a1 1 0 011-1h.01a1 1 0 011 1V14a1 1 0 01-1 1h-.01a1 1 0 01-1-1v-1z"></path></svg>
+                    <span><b>Modern JavaScript From The Beginning 2.0</b> (2024) (Udemy, July 11, 2022)</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Achievements Section -->
+        <section id="achievements" class="py-12 md:py-16">
+            <h2 class="text-3xl font-bold section-title">Achievements</h2>
+            <ul class="list-disc list-inside mt-8 text-gray-600 space-y-2">
+                <li>Received SPAN super star Award for exceptional performance and contribution to Taxbandits payroll product.</li>
+            </ul>
+        </section>
+        
+        <!-- Education Section -->
+        <section id="education" class="py-12 md:py-16">
+            <h2 class="text-3xl font-bold section-title">Education</h2>
+            <div class="mt-8">
+                <div class="flex flex-col md:flex-row justify-between">
+                    <div>
+                        <h4 class="text-lg font-semibold text-gray-700">Bachelor of Science in Information Technology</h4>
+                        <p class="text-sm text-gray-600">Hindusthan college of arts and science, Coimbatore, Tamil Nadu</p>
+                    </div>
+                    <p class="text-sm text-gray-600 md:text-right mt-1 md:mt-0">2023</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-12 md:py-16">
+            <h2 class="text-3xl font-bold section-title">Contact</h2>
+            <div class="mt-8 text-gray-600 flex flex-col space-y-2">
+                <p><b>Email:</b> <a href="mailto:kapilanmanikandan2002@gmail.com" class="text-blue-600 hover:underline">kapilanmanikandan2002@gmail.com</a></p>
+                <p><b>Phone:</b> +91 9092862002</p>
+                <p><b>Address:</b> Coimbatore, Tamil Nadu</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white text-center py-6">
+        <p>&copy; <span id="current-year"></span> Kapilan Manikandan. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Mobile menu toggle
+        const menuButton = document.getElementById('menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.2
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.timeline-item, .project-card').forEach(item => {
+            observer.observe(item);
+        });
+    </script>
+</body>
+</html>
